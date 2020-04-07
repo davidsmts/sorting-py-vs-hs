@@ -1,2 +1,2 @@
 
-Currently  just writing the algorithms. They are not effective and comparable yet.
+Currently  just writing the algorithms. They are neither effective nor comparable yet.
