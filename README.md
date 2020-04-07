@@ -1,2 +1,2 @@
-# sorting-py-vs-hs
-Sorting Algorithms in Python vs. Haskell
+
+Currently  just writing the algorithms. They are not effective and comparable yet.
