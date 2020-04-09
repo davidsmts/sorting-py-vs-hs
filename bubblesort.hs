@@ -9,4 +9,4 @@ sort (x:xs)
     | otherwise     = (cnt, x : arr)
     where
         xs1 = xs !! 0
-        (cnt, arr) = sort ((maximum ((xs !! 0) ++ [x])) ++ (drop 1 xs))
+        (cnt, arr) = sort ((maximum (x:[(xs!!0)])) : (drop 1 xs))
