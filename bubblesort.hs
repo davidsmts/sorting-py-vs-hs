@@ -3,12 +3,10 @@
 --
 bubblesort :: [Int] -> [Int]
 bubblesort arr
-    | null arr  = []
-    | cnt > 0   = bubblesort (take ((length s_arr)-1) s_arr) ++ [last s_arr]
-    | otherwise = []
+    | (cnt == 0) || (length arr <= 2) = new
+    | otherwise = (bubblesort (take ((length arr)-1) new)) ++ [(new !! ((length arr)-1))]
     where
-        (cnt, s_arr) = sort arr
-
+        (cnt, new) = sort arr
 -- 
 sort :: [Int] -> (Int, [Int])
 sort [] = (0, [])
