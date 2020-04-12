@@ -1,9 +1,21 @@
-{- mergesort :: [Int] -> [Int]
-mergesort inp
-    | length inp > 2    = mergesort (fst splitted) ++ mergesort (snd splitted)
-    | otherwise         = conquer inp
-    where splitted = splitAt ((length inp) 'div' 2) inp
- -}
+
+
+mergesort :: [Int] -> [Int]
+mergesort arr = (conquerAll (divideAll arr)) !! 0
+
+divideAll :: [Int] -> [[Int]]
+divideAll [] = []
+divideAll (x:xs)
+    | null xs = [[x]]
+    | otherwise = [x] : divideAll xs
+
+conquerAll :: [[Int]] -> [[Int]]
+conquerAll [] = []
+conquerAll [[]] = [[]]
+conquerAll (x:xs)
+    | null xs   = [x]
+    | otherwise = conquerAll (conquer x (xs !! 0) : (drop 1 xs))
+
 
 conquer :: [Int] -> [Int] -> [Int]
 conquer [] [] = []
@@ -14,5 +26,11 @@ conquer (x:xs) (y:ys)
     | otherwise = x : (conquer xs (y:ys))
 
 
-test :: [Int] -> [Int]
-test (x:xs) = (x:xs)
+-- !!!UNUSED!!!
+divide :: [Int] -> ([Int], [Int])
+divide arr
+    | length arr <= 1    = (arr, [])
+    | otherwise         = (take mid arr, drop mid arr)
+    where
+        mid = (length arr) `div` 2
+-- !!!UNUSED!!!
